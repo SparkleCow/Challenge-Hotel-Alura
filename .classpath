@@ -6,9 +6,12 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Genesys/Documents/BackEnd-Java/LivePT/Jars/c3p0-0.9.5.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Genesys/Documents/BackEnd-Java/LivePT/Jars/jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Genesys/Documents/BackEnd-Java/LivePT/Jars/mchange-commons-java-0.2.16.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Genesys/Documents/BackEnd-Java/LivePT/Jars/mysql-connector-java-8.0.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/cjelc/Downloads/Eclipse/HotelAlura/JCalendar/lib/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/cjelc/Downloads/Eclipse/HotelAlura/JCalendar/lib/jgoodies-common-1.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/cjelc/Downloads/Eclipse/HotelAlura/JCalendar/lib/jgoodies-looks-2.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/cjelc/Downloads/Eclipse/HotelAlura/JCalendar/lib/junit-4.6.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-j-8.0.32.jar"/>
+	<classpathentry kind="lib" path="jgoodies-common-1.8.0.jar" sourcepath="jgoodies-common-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="jgoodies-forms-1.8.0.jar" sourcepath="jgoodies-forms-1.8.0-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import modelo.RepositoryController;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -29,6 +32,7 @@ public class Login extends JFrame {
 	private JPasswordField txtContrasena;
 	int xMouse, yMouse;
 	private JLabel labelExit;
+	private RepositoryController repository;
 
 	/**
 	 * Launch the application.
@@ -68,7 +72,7 @@ public class Login extends JFrame {
 		panel.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(12, 138, 199));
+		panel_1.setBackground(new Color(128, 128, 255));
 		panel_1.setBounds(484, 0, 304, 527);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
@@ -116,10 +120,10 @@ public class Login extends JFrame {
 					 txtUsuario.setText("");
 					 txtUsuario.setForeground(Color.black);
 			        }
-			        if (String.valueOf(txtContrasena.getPassword()).isEmpty()) {
-			        	txtContrasena.setText("********");
-			        	txtContrasena.setForeground(Color.gray);
-			        }
+			     if (String.valueOf(txtContrasena.getPassword()).isEmpty()) {
+			    	 txtContrasena.setText("********");
+			    	 txtContrasena.setForeground(Color.gray);
+			     }
 			}
 		});
 		txtUsuario.setFont(new Font("Roboto", Font.PLAIN, 16));
@@ -136,7 +140,7 @@ public class Login extends JFrame {
 		panel.add(separator);
 		
 		JLabel labelTitulo = new JLabel("INICIAR SESIÓN");
-		labelTitulo.setForeground(SystemColor.textHighlight);
+		labelTitulo.setForeground(new Color(255, 128, 0));
 		labelTitulo.setFont(new Font("Roboto Black", Font.PLAIN, 26));
 		labelTitulo.setBounds(65, 149, 202, 26);
 		panel.add(labelTitulo);
@@ -183,25 +187,26 @@ public class Login extends JFrame {
 		btnLogin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				btnLogin.setBackground(new Color(0, 156, 223));
+				btnLogin.setBackground(new Color(230, 128, 30));
 			}
 		
 			@Override
 			public void mouseExited(MouseEvent e) {
-				btnLogin.setBackground(SystemColor.textHighlight);
+				btnLogin.setBackground(new Color(255, 128, 0));
 			}
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Login();
+				login();
 			}
 		});
-		btnLogin.setBackground(SystemColor.textHighlight);
+		btnLogin.setBackground(new Color(255, 128, 0));
 		btnLogin.setBounds(65, 431, 122, 44);
 		panel.add(btnLogin);
 		btnLogin.setLayout(null);
 		btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		
 		JLabel lblNewLabel = new JLabel("ENTRAR");
+		lblNewLabel.setBackground(new Color(255, 128, 0));
 		lblNewLabel.setBounds(0, 0, 122, 44);
 		btnLogin.add(lblNewLabel);
 		lblNewLabel.setForeground(SystemColor.controlLtHighlight);
@@ -234,28 +239,27 @@ public class Login extends JFrame {
 		header.setLayout(null);
 	}
 	
-	private void Login() {
-		 String Usuario= "admin";
-	     String Contraseña="admin";
-
-	        String contrase=new String (txtContrasena.getPassword());
-
-	        if(txtUsuario.getText().equals(Usuario) && contrase.equals(Contraseña)){
-	            MenuUsuario menu = new MenuUsuario();
-	            menu.setVisible(true);
-	            dispose();	 
-	        }else {
-	            JOptionPane.showMessageDialog(this, "Usuario o Contraseña no válidos");
-	        }
+	private void login() {
+		repository = new RepositoryController();
+		String usuario = txtUsuario.getText();
+		String clave = new String(txtContrasena.getPassword());
+		boolean usuarioEncontrado = repository.encontrarUsuario(usuario, clave);
+		
+		if(usuarioEncontrado) {
+			MenuUsuario menu = new MenuUsuario();
+            menu.setVisible(true);
+            this.dispose();	
+		}else {
+			JOptionPane.showMessageDialog(this, "Usuario o Contraseña no válidos");
+		}
 	} 
-	 private void headerMousePressed(java.awt.event.MouseEvent evt) {
-	        xMouse = evt.getX();
-	        yMouse = evt.getY();
-	    }//GEN-LAST:event_headerMousePressed
-
-	    private void headerMouseDragged(java.awt.event.MouseEvent evt) {
-	        int x = evt.getXOnScreen();
-	        int y = evt.getYOnScreen();
-	        this.setLocation(x - xMouse, y - yMouse);
-}
+	private void headerMousePressed(java.awt.event.MouseEvent evt) {
+	    xMouse = evt.getX();
+	    yMouse = evt.getY();
+	}
+	private void headerMouseDragged(java.awt.event.MouseEvent evt) {
+		int x = evt.getXOnScreen();
+	    int y = evt.getYOnScreen();
+	    this.setLocation(x - xMouse, y - yMouse);
+	}
 }
