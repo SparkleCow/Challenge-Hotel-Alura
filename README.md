@@ -7,12 +7,6 @@
 ---
 ##  Primeros Pasos:
 
-
-#### 🔹 Marca este proyecto con una ⭐
-#### 🔹 Sigue las orientaciones que tenemos en este repositorio. 📚
-#### 🔹 ¡Visita la página del desafío haciendo clic aquí! [Link do Challenge](https://www.aluracursos.com/challenges/oracle-one-back-end/hotelalura) 📃
-</br>
-
 ## 🖥️ Tecnologías Utilizadas:
 
 - Java
@@ -29,6 +23,15 @@
 🎨 La interfaz contiene dos métodos importantes:
 - setResizable(false): determina el tamaño de la ventana, y a través del parámetro <strong>false</strong>, la pantalla no se puede maximizar;
 - setLocationRelativeTo(null): determina la ubicación de la ventana, y a través del parámetro <strong>null</strong> la mantiene centrada en la pantalla.
+
+## MySQL
+### Importante
+
+📝 La base de datos contiene 3 tablas:
+     
+     1 - Login: Contiene los datos del administrador para dar acceso a la aplicación.
+     2 - Reservas: Guarda las reservas creadas por cada huesped.
+     3 - Huespedes: Guarda la información de cada huesped registrado en la plataforma.s
 
 #### Para este desafío, concéntrate en la parte lógica y la conexión con la base de datos, después de completar el desafío, siéntete libre de agregar nuevas funciones y modificar la interfaz gráfica.
 ---
